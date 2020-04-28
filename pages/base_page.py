@@ -8,6 +8,10 @@ import math
 import time
 
 class BasePage():
+    def click_button_view_basket(self):
+        view_basket = self.browser.find_element(*BasePageLocators.VIEW_BASKET)
+        view_basket.click()
+        
     def __init__(self, browser, url):
         self.browser = browser
         self.url = url
