@@ -79,14 +79,15 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.go_to_login_page()
         email = str(time.time()) + "@fakemail.org"
-        password = "newuser"
-        page.register_new_user(get_email==email, get_password==password)
+        password = "newusernewusernewuseruseruser"
+        page.register_new_user(email, password)
         page.should_be_authorized_user()
     
     def test_user_cant_see_success_message(self,browser):
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/stand-on-zanzibar_90/"
         page = ProductPage(browser, link)
         page.open()
-        time.sleep(3)
+        time.sleep(10)
         page.should_not_be_success_message()
     
     def test_user_can_add_product_to_basket(self,browser):
@@ -94,7 +95,8 @@ class TestUserAddToBasketFromProductPage():
         page = ProductPage(browser, link)
         page.open()
         page.click_button_add_to_basket()
-        page.solve_quiz_and_get_code()
+        time.sleep(10)
+        #page.solve_quiz_and_get_code()
         page.should_be_add_to_basket()
 
     
