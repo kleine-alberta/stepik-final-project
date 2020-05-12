@@ -26,6 +26,6 @@ class LoginPage(BasePage):
         get_password.send_keys(password)
         confirmed = self.browser.find_element(*LoginPageLocators.CONFIRM_PASS)
         confirmed.send_keys(password)
-        button = self.browser.find_element_by_css_selector('[name="registration_submit"]')
+        button = self.browser.find_element(*LoginPageLocators.BUTTON)
         button.click()
         assert True, "user  was not autorised"
